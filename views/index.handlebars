@@ -1,22 +1,26 @@
 <h1>B U R G E R S</h1>
 
-<div class="container burgers">
-  <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
+<div class="container">
+  <div class="row">
+    <div class="col-6 burgers" >
+      <div>Burgers to Devour</div>
+      {{#each burgers}}
+      {{#unless devoured}}
       {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-  <ul>
-  {{#each burgers}}
-    {{#if devoured}}
+      {{/unless}}
+      {{/each}}
+    </div>
+    <div class="col-6 burgers" >
+      <div>Burgers Devoured</div>
+      {{#each burgers}}
+      {{#if devoured}}
       {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
 </div>
+
 
 <h2>Order yourself a burger!</h2>
 <form class="create-form addBurger">

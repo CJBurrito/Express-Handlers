@@ -8,7 +8,7 @@ router.get("/", function(req, res) {
       var hbsObject = {
         burgers: data
       };
-      console.log(hbsObject);
+      // console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
@@ -31,7 +31,7 @@ router.get("/", function(req, res) {
     console.log("condition", condition);
   
     burger.update({
-      devoured: "true"
+      devoured: "1"
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
