@@ -6,7 +6,7 @@ var router = express.Router();
 router.get("/", function(req, res) {
     burger.all(function(data) {
       var hbsObject = {
-        burger: data
+        burgers: data
       };
       console.log(hbsObject);
       res.render("index", hbsObject);
@@ -14,10 +14,11 @@ router.get("/", function(req, res) {
   });
   
   router.post("/api/burger", function(req, res) {
+    console.log(req.body);
     burger.insert([
       "burger_name", "devoured"
     ], [
-      req.body.name, "false"
+      req.body.burger_name, "0"
     ], function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
